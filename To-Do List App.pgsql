@@ -1,7 +1,7 @@
-simple-note-app/
+todo-app/
 ├── backend/
 │   ├── app.py
-│   ├── notes.txt
+│   ├── tasks.txt
 │   └── Dockerfile
 │
 ├── frontend/
