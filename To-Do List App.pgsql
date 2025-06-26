@@ -1,7 +1,7 @@
 todo-app/
 ├── backend/
 │   ├── app.py
-│   ├── tasks.txt
+│   ├── todo.txt
 │   └── Dockerfile
 │
 ├── frontend/
