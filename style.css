@@ -1,0 +1,91 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    color: #5a5a5a;
+}
+
+.bag {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.todo-container {
+    z-index: 1;
+    background: #fff1a6;
+    border-radius: 50px;
+    padding: 60px;
+    width: 550px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #ff8fab;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ffc6c6;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 1em;
+}
+
+button {
+    background-color: #ff8fab;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff6f91;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    background-color: #fcd5ce;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li button {
+    background-color: #ffc6c6;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    color: #5a5a5a;
+}
+
+li button:hover {
+    background-color: #ffb3b3;
+}
