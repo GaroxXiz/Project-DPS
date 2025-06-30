@@ -3,19 +3,14 @@ version: "3.8"
 services:
   frontend:
     build:
-      context: ./frontend
+      context: ./Frontend
     ports:
       - "8080:80"
     depends_on:
-      - backend
+      - backend # ✅ pastikan ini sama persis dengan nama servicenya
 
   backend:
     build:
-      context: ./backend
+      context: ./Backend
     ports:
       - "5000:5000"
-    volumes:
-      - todo-data:/app/todo.txt
-
-volumes:
-  todo-data:
