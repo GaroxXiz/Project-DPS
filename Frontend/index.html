@@ -11,6 +11,7 @@
     <img class="bag" src="bg2.png" />
     <div class="todo-container">
       <h1>🌼 My To-Do List</h1>
+
       <form id="todo-form">
         <input
           type="text"
@@ -20,6 +21,15 @@
         />
         <button type="submit">Add</button>
       </form>
+
+      <!-- ✅ Filter Buttons Start -->
+      <div class="filters">
+        <button onclick="setFilter('all')">All</button>
+        <button onclick="setFilter('completed')">Completed</button>
+        <button onclick="setFilter('incomplete')">Incomplete</button>
+      </div>
+      <!-- ✅ Filter Buttons End -->
+
       <ul id="todo-list"></ul>
     </div>
 
