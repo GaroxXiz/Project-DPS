@@ -46,7 +46,8 @@ form {
 .filters button {
   margin: 0 5px;
   padding: 5px 10px;
-  background-color: #ffd6d6;
+  background-color: #cbe4fc;
+  color: rgb(56, 55, 55);
   border: none;
   border-radius: 8px;
   font-weight: bold;
@@ -98,7 +99,7 @@ li {
 }
 
 li span {
-  flex: 1px;
+  flex: 1;
   word-break: break-word;
 }
 
@@ -112,7 +113,7 @@ li button {
 }
 
 li button:hover {
-  background-color: #ffb3b3;
+  background-color: #bae6fa;
 }
 
 .edit-input {

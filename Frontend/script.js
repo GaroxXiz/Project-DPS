@@ -5,17 +5,18 @@ const list = document.getElementById("todo-list");
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
 let currentFilter = "all";
 
-// Fungsi untuk menyimpan ke localStorage
+// Simpan todos ke localStorage
 function saveTodos() {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
+// Tampilkan semua tugas
 function renderTodos() {
   list.innerHTML = "";
   const filtered = todos.filter((task) => {
     if (currentFilter === "completed") return task.completed;
     if (currentFilter === "incomplete") return !task.completed;
-    return true; // all
+    return true;
   });
 
   filtered.forEach((task, index) => {
@@ -31,7 +32,8 @@ function renderTodos() {
     const btnDone = document.createElement("button");
     btnDone.textContent = task.completed ? "Undo" : "Done";
     btnDone.onclick = () => {
-      todos[index].completed = !todos[index].completed;
+      const realIndex = todos.indexOf(task);
+      todos[realIndex].completed = !todos[realIndex].completed;
       saveTodos();
       renderTodos();
     };
@@ -55,25 +57,38 @@ function renderTodos() {
       btnSave.onclick = () => {
         const newText = inputEdit.value.trim();
         if (newText) {
-          todos[index].text = newText;
+          const realIndex = todos.indexOf(task);
+          todos[realIndex].text = newText;
           saveTodos();
         }
         renderTodos();
       };
     };
 
+    const btnDelete = document.createElement("button");
+    btnDelete.textContent = "Delete";
+    btnDelete.onclick = () => {
+      const realIndex = todos.indexOf(task);
+      todos.splice(realIndex, 1);
+      saveTodos();
+      renderTodos();
+    };
+
     li.appendChild(span);
     li.appendChild(btnEdit);
     li.appendChild(btnDone);
+    li.appendChild(btnDelete);
     list.appendChild(li);
   });
 }
 
+// Filter tampilan
 function setFilter(filter) {
   currentFilter = filter;
   renderTodos();
 }
 
+// Submit form untuk tambah tugas
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -83,9 +98,8 @@ form.addEventListener("submit", function (e) {
   todos.push({ text: taskText, completed: false });
   saveTodos();
   renderTodos();
-
   input.value = "";
 });
 
-// Jalankan saat pertama kali halaman dibuka
+// Render saat pertama kali dibuka
 renderTodos();
