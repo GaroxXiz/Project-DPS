@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:80"
     depends_on:
-      - backend # ✅ pastikan ini sama persis dengan nama servicenya
+      - backend
 
   backend:
     build:
