@@ -10,4 +10,5 @@ todo-app/
 │   ├── script.js
 │   └── Dockerfile
 │
-└── docker-compose.yml
+├── docker-compose.yml
+└── To-Do List App.pgsql
