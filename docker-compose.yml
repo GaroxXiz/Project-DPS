@@ -1,16 +1,28 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  frontend:
-    build:
-      context: ./Frontend
-    ports:
-      - "8080:80"
-    depends_on:
-      - backend
-
   backend:
-    build:
-      context: ./Backend
+    build: ./backend
     ports:
-      - "5000:5000"
+      - "5000:5000" # Map container's 5000 to host's 5000
+    volumes:
+      # Mount a volume for todo.txt to persist data even if container is removed
+      - ./backend/todo.txt:/app/todo.txt
+    environment:
+      FLASK_APP: app.py
+      FLASK_ENV: development # Enable debug mode in Flask (not recommended for production)
+    networks:
+      - todo_network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80" # Map container's 80 to host's 80 (default HTTP port)
+    depends_on:
+      - backend # Ensure backend starts before frontend
+    networks:
+      - todo_network
+
+networks:
+  todo_network:
+    driver: bridge

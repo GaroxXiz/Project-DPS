@@ -1,0 +1,3 @@
+makan,true
+minummain,true
+main,true
