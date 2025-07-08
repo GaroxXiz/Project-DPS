@@ -1,3 +1,5 @@
 makan,true
 minummain,true
 main,true
+rebahan,true
+lempar hekal,false

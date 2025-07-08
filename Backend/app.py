@@ -4,18 +4,8 @@ import os
 
 app = Flask(__name__)
 
-# Correct CORS configuration for Docker Compose setup
-# Allow requests from the 'frontend' service running on port 80
-# and also allow localhost for direct local testing (if needed outside Docker Compose)
-# Note: In a production environment, you would specify the exact domain
 CORS(app, resources={r"/*": {"origins": ["http://frontend", "http://localhost", "http://127.0.0.1"]}})
-# IMPORTANT: If your frontend is accessed from http://localhost:80, you might also need "http://localhost"
-# because the browser sometimes defaults port 80 away.
-# Let's try to explicitly allow http://localhost:80 as well to be safe:
-# CORS(app, resources={r"/*": {"origins": ["http://frontend", "http://localhost:80", "http://localhost", "http://127.0.0.1"]}})
 
-
-# Define the path to the todo.txt file relative to the app.py location
 TODO_FILE = 'todo.txt'
 
 @app.route('/todos', methods=['GET'])
